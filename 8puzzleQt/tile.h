@@ -5,6 +5,10 @@ class Tile
 {
 public:
     Tile();
+    void setNumber(unsigned num);
+    unsigned getNumber();
+private:
+    unsigned number;
 };
 
 #endif // TILE_H
