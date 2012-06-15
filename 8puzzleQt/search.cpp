@@ -1,5 +1,7 @@
 #include "search.h"
 
-Search::Search()
+Search::Search(Board initBoard, Board goalBoard)
 {
+
 }
+
