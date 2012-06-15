@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'puzzlewindow.ui'
 **
-** Created: Fri 15. Jun 23:44:57 2012
+** Created: Sat 16. Jun 00:52:03 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,7 +18,6 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QStatusBar>
-#include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,9 +25,8 @@ QT_BEGIN_NAMESPACE
 class Ui_PuzzleWindow
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
+    QMenuBar *menuBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *PuzzleWindow)
@@ -36,15 +34,13 @@ public:
         if (PuzzleWindow->objectName().isEmpty())
             PuzzleWindow->setObjectName(QString::fromUtf8("PuzzleWindow"));
         PuzzleWindow->resize(400, 300);
-        menuBar = new QMenuBar(PuzzleWindow);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        PuzzleWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(PuzzleWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        PuzzleWindow->addToolBar(mainToolBar);
         centralWidget = new QWidget(PuzzleWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         PuzzleWindow->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(PuzzleWindow);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 400, 21));
+        PuzzleWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(PuzzleWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         PuzzleWindow->setStatusBar(statusBar);
