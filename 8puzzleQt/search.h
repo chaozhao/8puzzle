@@ -3,16 +3,23 @@
 #include "board.h"
 #include <QStack>
 
+
 class Search
 {
 public:
-    Search(Board initBoard, Board goalBoard);
-    unsigned findNumberofMisplaceTile();
+    Search(Board initState, Board goalState);
+    unsigned getHeruistic(Board aState);
     void solve();
+    unsigned getRandDirection(unsigned seed);
+    void push(Board aState);
+    Board pop();
+    Board top();
+    bool isEmpty();
+
 private:
-    Board *goalBoard;
-    Board *initBoard;
-    QStack<Board> fringe;
+    Board *goalState;
+    Board *initState;
+    QStack<Board> *fringe;
 
 };
 
