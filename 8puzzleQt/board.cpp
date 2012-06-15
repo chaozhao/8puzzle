@@ -75,3 +75,48 @@ Board Board::move(unsigned direction)
     }
     return returnBoard;
 }
+
+void Board::setInitState()
+{
+    unsigned num = 1;
+    for( unsigned i = 0 ; i < ROWS ; i++ )
+    {
+        for( unsigned j=0;j<COLS;j++)
+        {
+             tiles[i][j].setNumber(num);
+             num++;
+        }
+    }
+}
+
+void Board::setGoalState()
+{
+    unsigned num = 8;
+    for( unsigned i = 0 ; i < ROWS ; i++ )
+    {
+        for( unsigned j=0;j<COLS;j++)
+        {
+             tiles[i][j].setNumber(num);
+             num--;
+        }
+
+    }
+}
+
+Dimension Board::findEmptyTile()
+{
+    Dimension emptyLocation;
+    for( unsigned i = 0 ; i < ROWS ; i++ )
+    {
+        for( unsigned j=0;j<COLS;j++)
+        {
+             if(tiles[i][j].getNumber() == 0)
+             {
+                 emptyLocation.setValues(i,j);
+                 break;
+             }
+        }
+    }
+    return emptyLocation;
+}
+

@@ -14,6 +14,8 @@ public:
     void moveDown();
     void moveLeft();
     Board move(unsigned);
+    void setInitState();
+    void setGoalState();
 private:
     //private function
     Dimension findEmptyTile();
