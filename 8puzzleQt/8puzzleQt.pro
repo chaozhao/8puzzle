@@ -11,8 +11,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        puzzlewindow.cpp
+        puzzlewindow.cpp \
+    board.cpp \
+    tile.cpp \
+    dimension.cpp \
+    search.cpp
 
-HEADERS  += puzzlewindow.h
+HEADERS  += puzzlewindow.h \
+    board.h \
+    tile.h \
+    dimension.h \
+    search.h
 
 FORMS    += puzzlewindow.ui
