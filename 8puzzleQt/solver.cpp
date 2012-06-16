@@ -1,4 +1,4 @@
-#include "search.h"
+#include "solver.h"
 #include <QDebug>
 #include <QQueue>
 #include <stdlib.h>
@@ -6,12 +6,13 @@
 #define ROWS 3
 #define COLS 3
 
-Search::Search(Board initBoard, Board goalBoard)
+Solver::Solver(Board *aInitState, Board *aGoalBoard)
 {
-
+    initState = aInitState;
+    goalState = aGoalBoard;
 }
 
-unsigned Search::getHeruistic(Board currentState)
+unsigned Solver::getHeruistic(Board currentState)
 {
     unsigned misplacedTiles = 0;
     unsigned sumManhattanDistance = 0;
@@ -59,7 +60,7 @@ unsigned Search::getHeruistic(Board currentState)
 }
 
 
-void Search::solve()
+void Solver::solve()
 {
     Board currentState;
     QQueue<Board> children;
@@ -75,33 +76,33 @@ void Search::solve()
 
 }
 
-unsigned Search::getRandDirection(unsigned seed)
+unsigned Solver::getRandDirection(unsigned seed)
 {
     qsrand(seed);
     return qrand() % ((3 + 1) - 0) + 0;
 }
 
-void Search::push(Board aState)
+void Solver::push(Board aState)
 {
     fringe->push(aState);
 }
 
-Board Search::pop()
+Board Solver::pop()
 {
     return fringe->pop();
 }
 
-Board Search::top()
+Board Solver::top()
 {
     return fringe->top();
 }
 
-bool Search::isEmpty()
+bool Solver::isEmpty()
 {
     return fringe->isEmpty();
 }
 
-unsigned Search::getManhattanDistance(Dimension current, Dimension goal)
+unsigned Solver::getManhattanDistance(Dimension current, Dimension goal)
 {
     return abs(current.getRow()-goal.getRow())+abs(current.getCol()-goal.getCol());
 }

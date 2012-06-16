@@ -1,13 +1,12 @@
-#ifndef SEARCH_H
-#define SEARCH_H
+#ifndef SOLVER_H
+#define SOLVER_H
 #include "board.h"
 #include <QStack>
 
-
-class Search
+class Solver
 {
 public:
-    Search(Board initState, Board goalState);
+    Solver(Board *aInitBoard, Board *aGoalBoard);
     unsigned getHeruistic(Board currentState);
     void solve();
     unsigned getRandDirection(unsigned seed);
@@ -16,13 +15,10 @@ public:
     Board top();
     bool isEmpty();
     unsigned getManhattanDistance(Dimension current,Dimension goal);
-
-
 private:
     Board *goalState;
     Board *initState;
     QStack<Board> *fringe;
-
 };
 
-#endif // SEARCH_H
+#endif // SOLVER_H

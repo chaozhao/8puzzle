@@ -15,12 +15,12 @@ SOURCES += main.cpp\
     board.cpp \
     tile.cpp \
     dimension.cpp \
-    search.cpp
+    solver.cpp
 
 HEADERS  += puzzlewindow.h \
     board.h \
     tile.h \
     dimension.h \
-    search.h
+    solver.h
 
 FORMS    += puzzlewindow.ui
