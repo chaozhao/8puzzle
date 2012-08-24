@@ -1,24 +1,24 @@
 #ifndef SOLVER_H
 #define SOLVER_H
 #include "board.h"
-#include <QStack>
+#include <QLinkedList>
 
 class Solver
 {
 public:
-    Solver(Board *aInitBoard, Board *aGoalBoard);
+    Solver(Board *aInitBoard, Board *aGoalState);
     unsigned getHeruistic(Board currentState);
     void solve();
     unsigned getRandDirection(unsigned seed);
-    void push(Board aState);
-    Board pop();
-    Board top();
+    void push_back(Board aState);
+    Board last();
     bool isEmpty();
     unsigned getManhattanDistance(Dimension current,Dimension goal);
 private:
     Board *goalState;
     Board *initState;
-    QStack<Board> *fringe;
+    QLinkedList<Board> *open;
+    QLinkedList<Board> *close;
 };
 
 #endif // SOLVER_H

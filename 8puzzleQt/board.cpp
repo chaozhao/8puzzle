@@ -76,6 +76,11 @@ Board Board::move(unsigned direction)
     return returnBoard;
 }
 
+unsigned Board::getMoves(unsigned direction)
+{
+
+}
+
 void Board::setInitState()
 {
     unsigned num = 1;
@@ -103,6 +108,10 @@ void Board::setGoalState()
     }
 }
 
+Tile **Board::getTiles() const
+{
+    return tiles;
+}
 Dimension Board::findEmptyTile()
 {
     Dimension emptyLocation;

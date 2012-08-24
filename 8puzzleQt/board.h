@@ -2,6 +2,7 @@
 #define BOARD_H
 #include "tile.h"
 #include "dimension.h"
+#include <QVector>
 
 class Board
 {
@@ -14,8 +15,10 @@ public:
     void moveDown();
     void moveLeft();
     Board move(unsigned);
+    QVector getMoves(unsigned direction);
     void setInitState();
     void setGoalState();
+    Tile** getTiles() const;
 private:
     //private function
     Dimension findEmptyTile();

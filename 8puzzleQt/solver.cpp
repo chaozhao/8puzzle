@@ -2,14 +2,15 @@
 #include <QDebug>
 #include <QQueue>
 #include <stdlib.h>
+#include <QVector>
 
 #define ROWS 3
 #define COLS 3
 
-Solver::Solver(Board *aInitState, Board *aGoalBoard)
+Solver::Solver(Board *aInitState, Board *aGoalState)
 {
     initState = aInitState;
-    goalState = aGoalBoard;
+    goalState = aGoalState;
 }
 
 unsigned Solver::getHeruistic(Board currentState)
@@ -63,11 +64,11 @@ unsigned Solver::getHeruistic(Board currentState)
 void Solver::solve()
 {
     Board currentState;
-    QQueue<Board> children;
-    push(initState);
+    QVector<Board> children;
+    push_back(initState);
     while(!isEmpty())
     {
-        currentState = pop();
+        currentState = last();
 
         //get all child
         //analyse best state by heruistic
@@ -82,24 +83,26 @@ unsigned Solver::getRandDirection(unsigned seed)
     return qrand() % ((3 + 1) - 0) + 0;
 }
 
-void Solver::push(Board aState)
+void Solver::push_back(Board aState)
 {
-    fringe->push(aState);
+    open->push_back(aState);
 }
 
-Board Solver::pop()
+Board Solver::last()
 {
-    return fringe->pop();
-}
+    Board aBoard;
 
-Board Solver::top()
-{
-    return fringe->top();
+    if(!open->isEmpty())
+    {
+        aBoard = open->last();
+    }
+
+    return aBoard;
 }
 
 bool Solver::isEmpty()
 {
-    return fringe->isEmpty();
+    return open->isEmpty();
 }
 
 unsigned Solver::getManhattanDistance(Dimension current, Dimension goal)
